@@ -1,9 +1,10 @@
 import * as React from 'react';
+import { Stack, IStackItemStyles, DefaultPalette } from '@fluentui/react';
 
 export default function Sidebar(): JSX.Element {
   return (
-    <div>
-      <h2>Sidebar</h2>
-    </div>
+    <Stack>
+      <Stack.Item grow>Teste</Stack.Item>
+    </Stack>
   );
 }
