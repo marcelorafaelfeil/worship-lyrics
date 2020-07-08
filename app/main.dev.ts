@@ -8,8 +8,7 @@
  * When running `yarn build` or `yarn build-main`, this file is compiled to
  * `./app/main.prod.js` using webpack. This gives us some performance wins.
  */
-import path from 'path';
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Menu } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
@@ -58,6 +57,8 @@ const createWindow = async () => {
     show: false,
     width: 1024,
     height: 728,
+    transparent: true,
+    frame: false,
     webPreferences: {
       nodeIntegration: true,
     },
@@ -85,6 +86,7 @@ const createWindow = async () => {
 
   const menuBuilder = new MenuBuilder(mainWindow);
   menuBuilder.buildMenu();
+  Menu.setApplicationMenu(null);
 
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line

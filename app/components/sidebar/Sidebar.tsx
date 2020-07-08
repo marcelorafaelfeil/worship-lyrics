@@ -1,10 +1,43 @@
+import { INavLinkGroup, Nav, Stack } from '@fluentui/react';
 import * as React from 'react';
-import { Stack, IStackItemStyles, DefaultPalette } from '@fluentui/react';
+import SearchLyric from './search-lyric/SearchLyric';
+import LyricsList from './lyrics-list/LyricsList';
+
+const navLinkGroups: INavLinkGroup[] = [
+  {
+    links: [
+      {
+        name: 'Nova letra',
+        url: 'http://msn.com',
+        key: 'key1',
+        target: '_blank',
+        icon: 'Add',
+      },
+    ],
+  },
+];
+const navStyle = {
+  groupContent: {
+    marginBottom: 15,
+  },
+};
 
 export default function Sidebar(): JSX.Element {
   return (
     <Stack>
-      <Stack.Item grow>Teste</Stack.Item>
+      <Stack>
+        <Nav
+          ariaLabel="Nav example with custom group headers"
+          groups={navLinkGroups}
+          styles={navStyle}
+        />
+      </Stack>
+      <Stack>
+        <SearchLyric />
+      </Stack>
+      <Stack>
+        <LyricsList />
+      </Stack>
     </Stack>
   );
 }
