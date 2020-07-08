@@ -5,6 +5,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'react/display-name': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'import/prefer-default-export': 'off',
   },
   parserOptions: {
     ecmaVersion: 2020,

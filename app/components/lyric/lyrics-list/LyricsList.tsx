@@ -14,6 +14,12 @@ import {
   Stack,
 } from '@fluentui/react';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { openLyric } from '../LyricSlice';
+import GetLyrics from './GetLyrics';
+import { ILyric } from './ILyric';
+
+const items: ILyric[] = GetLyrics();
 
 const classNames = mergeStyleSets({
   row: {
@@ -26,12 +32,6 @@ const classNames = mergeStyleSets({
     },
   },
 });
-
-export interface ILyric {
-  key: number;
-  music: string;
-  artist: string;
-}
 
 const columns: IColumn[] = [
   {
@@ -71,149 +71,6 @@ function getKey(item: any) {
   return item.key;
 }
 
-const items: ILyric[] = [
-  {
-    key: 1,
-    artist: 'Gabriela Rocha',
-    music: 'Atos 2',
-  },
-  {
-    key: 2,
-    artist: 'Gabriela Rocha',
-    music: 'O noivo vem',
-  },
-  {
-    key: 3,
-    artist: 'Morada',
-    music: 'Oh! Se fendesses',
-  },
-  {
-    key: 4,
-    artist: 'Morada',
-    music: 'É tudo sobre você',
-  },
-  {
-    key: 5,
-    artist: 'Gabriela Rocha',
-    music: 'O noivo vem',
-  },
-  {
-    key: 6,
-    artist: 'Morada',
-    music: 'Oh! Se fendesses',
-  },
-  {
-    key: 7,
-    artist: 'Morada',
-    music: 'É tudo sobre você',
-  },
-  {
-    key: 8,
-    artist: 'Gabriela Rocha',
-    music: 'O noivo vem',
-  },
-  {
-    key: 9,
-    artist: 'Morada',
-    music: 'Oh! Se fendesses',
-  },
-  {
-    key: 10,
-    artist: 'Morada',
-    music: 'É tudo sobre você',
-  },
-  {
-    key: 11,
-    artist: 'Gabriela Rocha',
-    music: 'O noivo vem',
-  },
-  {
-    key: 12,
-    artist: 'Morada',
-    music: 'Oh! Se fendesses',
-  },
-  {
-    key: 13,
-    artist: 'Morada',
-    music: 'É tudo sobre você',
-  },
-  {
-    key: 14,
-    artist: 'Gabriela Rocha',
-    music: 'O noivo vem',
-  },
-  {
-    key: 15,
-    artist: 'Morada',
-    music: 'Oh! Se fendesses',
-  },
-  {
-    key: 16,
-    artist: 'Morada',
-    music: 'É tudo sobre você',
-  },
-  {
-    key: 17,
-    artist: 'Gabriela Rocha',
-    music: 'O noivo vem',
-  },
-  {
-    key: 18,
-    artist: 'Morada',
-    music: 'Oh! Se fendesses',
-  },
-  {
-    key: 19,
-    artist: 'Morada',
-    music: 'É tudo sobre você',
-  },
-  {
-    key: 20,
-    artist: 'Gabriela Rocha',
-    music: 'O noivo vem',
-  },
-  {
-    key: 21,
-    artist: 'Morada',
-    music: 'Oh! Se fendesses',
-  },
-  {
-    key: 22,
-    artist: 'Morada',
-    music: 'É tudo sobre você',
-  },
-  {
-    key: 23,
-    artist: 'Gabriela Rocha',
-    music: 'O noivo vem',
-  },
-  {
-    key: 24,
-    artist: 'Morada',
-    music: 'Oh! Se fendesses',
-  },
-  {
-    key: 25,
-    artist: 'Morada',
-    music: 'É tudo sobre você',
-  },
-  {
-    key: 26,
-    artist: 'Gabriela Rocha',
-    music: 'O noivo vem',
-  },
-  {
-    key: 27,
-    artist: 'Morada',
-    music: 'Oh! Se fendesses',
-  },
-  {
-    key: 28,
-    artist: 'Morada',
-    music: 'É tudo sobre você',
-  },
-];
-
 const onRenderRow: IDetailsListProps['onRenderRow'] = (props) => {
   const customStyles: Partial<IDetailsRowStyles> = {};
   if (props) {
@@ -249,6 +106,8 @@ const listStyle: IDetailsListStyles = {
 };
 
 export default function LyricsList() {
+  const dispatch = useDispatch();
+
   return (
     <Stack>
       <DetailsList
@@ -263,6 +122,7 @@ export default function LyricsList() {
         onRenderRow={onRenderRow}
         isHeaderVisible
         styles={listStyle}
+        onItemInvoked={(data: ILyric) => dispatch(openLyric(data))}
       />
     </Stack>
   );

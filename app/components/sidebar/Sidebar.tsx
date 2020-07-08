@@ -1,7 +1,7 @@
 import { INavLinkGroup, Nav, Stack } from '@fluentui/react';
 import * as React from 'react';
 import SearchLyric from './search-lyric/SearchLyric';
-import LyricsList from './lyrics-list/LyricsList';
+import LyricsList from '../lyric/lyrics-list/LyricsList';
 
 const navLinkGroups: INavLinkGroup[] = [
   {

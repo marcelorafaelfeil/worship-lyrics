@@ -9,6 +9,8 @@ import {
 import * as React from 'react';
 import hexToRgba from 'hex-to-rgba';
 import Sidebar from './sidebar/Sidebar';
+import RightBar from './rightbar/RightBar';
+import Screen from './screen/Screen';
 
 const stackStyle: IStackStyles = {
   root: {
@@ -27,6 +29,14 @@ const contentStyle: IStackItemStyles = {
     background: DefaultPalette.black,
   },
 };
+const rightBar: IStackItemStyles = {
+  root: {
+    width: 260,
+    background: DefaultPalette.neutralDark,
+    overflowX: 'hidden',
+    marginBottom: 28,
+  },
+};
 
 const stackTokens: IStackTokens = { childrenGap: '6 0', padding: 0 };
 
@@ -38,10 +48,10 @@ export default function Home(): JSX.Element {
           <Sidebar />
         </Stack.Item>
         <Stack.Item styles={contentStyle} grow={4}>
-          Olá mundo!
+          <Screen />
         </Stack.Item>
-        <Stack.Item styles={contentStyle} grow={1}>
-          Olá mundo!
+        <Stack.Item styles={rightBar}>
+          <RightBar />
         </Stack.Item>
       </Stack>
     </Fabric>

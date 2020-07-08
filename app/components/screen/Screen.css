@@ -1,0 +1,12 @@
+.screenContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.screenLyric {
+  display: flex;
+  margin-top: -100px;
+  text-align: center;
+  padding: 0 50px;
+}
