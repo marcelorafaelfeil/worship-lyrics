@@ -6,6 +6,7 @@ module.exports = {
     'react/display-name': 'off',
     'react/jsx-props-no-spreading': 'off',
     'import/prefer-default-export': 'off',
+    'class-methods-use-this': 'off',
   },
   parserOptions: {
     ecmaVersion: 2020,

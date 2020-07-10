@@ -187,6 +187,7 @@
     "@types/redux-logger": "^3.0.8",
     "@types/webpack": "^4.41.17",
     "@types/webpack-env": "^1.15.2",
+    "@types/ws": "^7.2.6",
     "@typescript-eslint/eslint-plugin": "^3.5.0",
     "@typescript-eslint/parser": "^3.5.0",
     "babel-eslint": "^10.1.0",
@@ -266,6 +267,7 @@
     "electron-updater": "^4.3.1",
     "hex-to-rgba": "^2.0.1",
     "history": "4.7.2",
+    "node-static": "^0.7.11",
     "react": "^16.13.1",
     "react-dom": "^16.12.0",
     "react-hot-loader": "^4.12.21",
@@ -273,7 +275,8 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "source-map-support": "^0.5.19"
+    "source-map-support": "^0.5.19",
+    "ws": "^7.3.1"
   },
   "devEngines": {
     "node": ">=7.x",
