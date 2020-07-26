@@ -1,0 +1,4 @@
+{
+  "lyrics": { "directory": "C:/lyrics/" },
+  "server": { "ws": { "port": 4041 }, "http": { "port": 4045 } }
+}

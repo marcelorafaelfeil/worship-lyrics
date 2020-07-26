@@ -1,0 +1,28 @@
+.content {
+  padding: 15px;
+  width: 500px;
+}
+.header {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.header2 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.form {
+  padding: 15px;
+}
+.row {
+  margin-bottom: 15px;
+}
+.actionRow {
+  text-align: right;
+  margin-top: 30px;
+}
+.actionRow button {
+  vertical-align: middle;
+  margin-left: 30px;
+}

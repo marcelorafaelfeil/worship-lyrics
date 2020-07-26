@@ -9,9 +9,11 @@
  * `./app/main.prod.js` using webpack. This gives us some performance wins.
  */
 import { app, BrowserWindow, Menu } from 'electron';
-import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
+import { autoUpdater } from 'electron-updater';
+import { configuration } from './core/configuration';
 import MenuBuilder from './menu';
+import { StartServerService } from './services/http/StartServerService';
 
 export default class AppUpdater {
   constructor() {
@@ -46,6 +48,12 @@ const installExtensions = async () => {
 };
 
 const createWindow = async () => {
+  configuration().initConfiguration();
+
+  const startServer = new StartServerService();
+  startServer.startWS();
+  startServer.startHTTP();
+
   if (
     process.env.NODE_ENV === 'development' ||
     process.env.DEBUG_PROD === 'true'
@@ -61,7 +69,6 @@ const createWindow = async () => {
     frame: false,
     webPreferences: {
       nodeIntegration: true,
-      enableRemoteModule: true,
     },
   });
 
@@ -87,6 +94,7 @@ const createWindow = async () => {
 
   const menuBuilder = new MenuBuilder(mainWindow);
   menuBuilder.buildMenu();
+
   Menu.setApplicationMenu(null);
 
   // Remove this if your app does not use auto updates

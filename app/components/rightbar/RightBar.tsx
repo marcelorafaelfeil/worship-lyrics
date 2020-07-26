@@ -1,7 +1,7 @@
 import { DefaultPalette, Stack } from '@fluentui/react';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { LyricPresent } from '../lyric/lyric-preset/LyricPresent';
+import { LyricPresent } from '../lyric/lyric-present/LyricPresent';
 import { ILyric } from '../lyric/lyrics-list/ILyric';
 import { selectedLyric } from '../lyric/LyricSlice';
 import styles from './RightBar.css';

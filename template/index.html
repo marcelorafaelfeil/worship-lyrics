@@ -19,15 +19,14 @@
   <body>
     <div id="lyric"></div>
     <div id="debug"></div>
-    <script src="https://cdn.jsdelivr.net/npm/stomp-websocket-js@1.0.0/lib/stomp.js"></script>
+    <script src="http://localhost:4045/core/stomp.js"></script>
     <script>
       window.onload = function () {
         var url = '';
         if (window.WebSocket) {
           var client, destination;
-          var url = 'ws://localhost:9000/connection/message';
+          var url = 'ws://localhost:4041/connection/message';
           client = new WebSocket(url);
-          // client = Stomp.over({})
 
           client.onmessage = function (message) {
             document.getElementById('lyric').innerHTML = message.data;

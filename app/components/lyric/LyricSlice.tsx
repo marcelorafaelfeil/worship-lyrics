@@ -1,13 +1,10 @@
+/* eslint-disable import/no-cycle */
 import { createSlice } from '@reduxjs/toolkit';
-// eslint-disable-next-line import/no-cycle
 import { RootState } from '../../store';
 import { ILyric } from './lyrics-list/ILyric';
-import { PresentLyricService } from './lyric-preset/PresentLyricService';
+import { presentLyricService } from './lyric-present/presentLyricService';
 
-console.log('quantidade de vezes!');
-
-const server = new PresentLyricService();
-server.initServer();
+const { updateLyric } = presentLyricService();
 
 const lyricSlice = createSlice({
   name: 'lyric',
@@ -18,7 +15,7 @@ const lyricSlice = createSlice({
     },
     selectVerse: (state, data) => {
       state.verse = data.payload;
-      server.updateLyric(state.verse);
+      updateLyric(state.verse);
     },
   },
 });

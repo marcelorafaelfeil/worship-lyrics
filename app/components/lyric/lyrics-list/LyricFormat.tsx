@@ -1,5 +1,5 @@
 import React from 'react';
-import Verse from '../lyric-preset/Verse';
+import Verse from '../lyric-present/Verse';
 
 export const lyricPrepare = (lyric: string) => {
   let blockTexts;

@@ -17,13 +17,11 @@ export default function Verse(props: LyricPresentProps) {
   const dispatch = useDispatch();
 
   return (
-    <p>
-      <Stack
-        className={styles.verse}
-        onClick={() => onSelectVerse(dispatch, value)}
-      >
-        {value}
-      </Stack>
-    </p>
+    <Stack
+      className={styles.verse}
+      onClick={() => onSelectVerse(dispatch, value)}
+    >
+      {value}
+    </Stack>
   );
 }
