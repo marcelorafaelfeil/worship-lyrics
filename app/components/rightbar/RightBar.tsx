@@ -5,12 +5,16 @@ import { LyricPresent } from '../lyric/lyric-present/LyricPresent';
 import { ILyric } from '../lyric/lyrics-list/ILyric';
 import { selectedLyric } from '../lyric/LyricSlice';
 import styles from './RightBar.css';
+import { LyricsMenu } from './lyrics-live/LyricsLive';
 
 export default function RightBar() {
   const data: ILyric = useSelector(selectedLyric);
 
   return (
     <Stack className={styles.rightbar}>
+      <Stack>
+        <LyricsMenu />
+      </Stack>
       <Stack>
         <h2>
           {data.music}

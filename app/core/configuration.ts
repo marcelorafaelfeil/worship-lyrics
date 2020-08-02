@@ -7,12 +7,12 @@ import defaultConfig from '../config/default-configuration.json';
 const CONFIG_PATH = path.join(app.getAppPath(), '..', 'config');
 const CONFIG_FILE = path.join(CONFIG_PATH, 'conf.json');
 
-const TEMPLATE_FILE = path.join(
+export const TEMPLATE_PATH = path.join(
   process.env.NODE_ENV === 'production' ? app.getPath('exe') : app.getAppPath(),
   '..',
-  'template',
-  'index.html'
+  'template'
 );
+const TEMPLATE_FILE = path.join(TEMPLATE_PATH, 'index.html');
 
 export function configuration() {
   function getConfig() {
@@ -56,7 +56,7 @@ export function configuration() {
     }
   }
 
-  function initConfiguration() {
+  function initialize() {
     try {
       if (!fs.existsSync(CONFIG_FILE)) {
         fs.mkdirSync(CONFIG_PATH, { recursive: true });
@@ -76,7 +76,7 @@ export function configuration() {
   }
 
   return {
-    initConfiguration,
+    initialize,
     getConfig,
   };
 }

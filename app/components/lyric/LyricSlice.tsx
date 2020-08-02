@@ -1,10 +1,12 @@
 /* eslint-disable import/no-cycle */
 import { createSlice } from '@reduxjs/toolkit';
+import { ipcRenderer } from 'electron';
+import * as $log from 'electron-log';
 import { RootState } from '../../store';
 import { ILyric } from './lyrics-list/ILyric';
 import { presentLyricService } from './lyric-present/presentLyricService';
 
-const { updateLyric } = presentLyricService();
+const { updateLyric, lastLyric } = presentLyricService();
 
 const lyricSlice = createSlice({
   name: 'lyric',
@@ -26,3 +28,8 @@ export default lyricSlice.reducer;
 
 export const selectedLyric = (state: RootState) => state.lyric.value;
 export const selectedVerse = (state: RootState) => state.lyric.verse;
+
+ipcRenderer.on('server:start', () => {
+  $log.info('lastLyric(): ', lastLyric());
+  updateLyric(lastLyric());
+});

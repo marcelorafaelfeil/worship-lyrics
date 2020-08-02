@@ -13,7 +13,8 @@ import log from 'electron-log';
 import { autoUpdater } from 'electron-updater';
 import { configuration } from './core/configuration';
 import MenuBuilder from './menu';
-import { StartServerService } from './services/http/StartServerService';
+import { StartServerService } from './core/http/worshipServer';
+import { bootstrap } from './core/bootstrap';
 
 export default class AppUpdater {
   constructor() {
@@ -48,11 +49,7 @@ const installExtensions = async () => {
 };
 
 const createWindow = async () => {
-  configuration().initConfiguration();
-
-  const startServer = new StartServerService();
-  startServer.startWS();
-  startServer.startHTTP();
+  bootstrap();
 
   if (
     process.env.NODE_ENV === 'development' ||

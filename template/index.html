@@ -19,19 +19,40 @@
   <body>
     <div id="lyric"></div>
     <div id="debug"></div>
-    <script src="http://localhost:4045/core/stomp.js"></script>
+    <script src="http://localhost:9091/core/stomp.js"></script>
     <script>
       window.onload = function () {
-        var url = '';
-        if (window.WebSocket) {
-          var client, destination;
-          var url = 'ws://localhost:4041/connection/message';
-          client = new WebSocket(url);
+        function connect() {
+          var url = '';
+          if (window.WebSocket) {
+            var client, destination;
+            var url = 'ws://localhost:4041/connection/message';
+            client = new WebSocket(url);
 
-          client.onmessage = function (message) {
-            document.getElementById('lyric').innerHTML = message.data;
-          };
+            client.onmessage = function (message) {
+              document.getElementById('lyric').innerHTML = message.data;
+            };
+
+            client.onclose = function (event) {
+              console.debug('Sokect fechado. Reconectando.');
+
+              document.getElementById('lyric').innerHTML = '';
+
+              setTimeout(function () {
+                connect();
+              }, 1000);
+            };
+
+            client.onerror = function () {
+              console.error(
+                'Não foi possível se conectar com o servidor de websocket.'
+              );
+              client.close();
+            };
+          }
         }
+
+        connect();
       };
     </script>
   </body>
