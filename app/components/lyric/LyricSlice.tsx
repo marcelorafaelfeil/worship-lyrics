@@ -19,10 +19,14 @@ const lyricSlice = createSlice({
       state.verse = data.payload;
       updateLyric(state.verse);
     },
+    clearVerse: (state) => {
+      state.verse = '';
+      updateLyric(state.verse);
+    },
   },
 });
 
-export const { openLyric, selectVerse } = lyricSlice.actions;
+export const { openLyric, selectVerse, clearVerse } = lyricSlice.actions;
 
 export default lyricSlice.reducer;
 

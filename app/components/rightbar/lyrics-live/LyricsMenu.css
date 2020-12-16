@@ -4,6 +4,10 @@
   padding: 0 0;
 }
 
+.clearButton {
+  margin-right: 5px;
+}
+
 .liveButton {
   background-color: rgb(1, 129, 76);
 }

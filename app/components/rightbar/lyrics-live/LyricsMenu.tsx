@@ -1,16 +1,23 @@
-import * as $log from 'electron-log';
 import { CommandBarButton, IIconProps, Stack } from '@fluentui/react';
 import { ipcRenderer } from 'electron';
+import * as $log from 'electron-log';
 import React, { useState } from 'react';
-import styles from './LyricsLive.css';
+import { useDispatch } from 'react-redux';
+import { presentLyricService } from '../../lyric/lyric-present/presentLyricService';
+import { clearVerse } from '../../lyric/LyricSlice';
+import styles from './LyricsMenu.css';
 
 export function LyricsMenu() {
+  const dispatch = useDispatch();
+
   const liveIcon: IIconProps = {
     iconName: 'Play',
   };
   const stopIcon: IIconProps = {
     iconName: 'Stop',
   };
+
+  const { clear } = presentLyricService();
 
   const [isLive, setIsLive] = useState(
     ipcRenderer.sendSync('server:isOpenned')
@@ -29,8 +36,19 @@ export function LyricsMenu() {
     setIsLive(ipcRenderer.sendSync('server:isOpenned'));
   };
 
+  const doClear = () => {
+    dispatch(clearVerse());
+    clear();
+  };
+
   return (
     <Stack horizontal className={styles.contentButton}>
+      <CommandBarButton
+        primary
+        className={styles.clearButton}
+        onClick={doClear}
+        text="Clear"
+      />
       {!isLive && (
         <CommandBarButton
           primary

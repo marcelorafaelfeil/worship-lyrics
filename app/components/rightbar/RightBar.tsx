@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import { LyricPresent } from '../lyric/lyric-present/LyricPresent';
 import { ILyric } from '../lyric/lyrics-list/ILyric';
 import { selectedLyric } from '../lyric/LyricSlice';
-import { LyricsMenu } from './lyrics-live/LyricsLive';
+import { LyricsMenu } from './lyrics-live/LyricsMenu';
 import styles from './RightBar.css';
 
 const outerStackTokens: IStackTokens = {

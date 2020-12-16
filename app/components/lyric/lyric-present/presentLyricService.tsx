@@ -30,6 +30,11 @@ export function presentLyricService() {
     sendLyric(lyric);
   }
 
+  function clear() {
+    lyric = '';
+    sendLyric(lyric);
+  }
+
   function lastLyric() {
     return lyric;
   }
@@ -38,5 +43,6 @@ export function presentLyricService() {
     sendLyric,
     updateLyric,
     lastLyric,
+    clear,
   };
 }

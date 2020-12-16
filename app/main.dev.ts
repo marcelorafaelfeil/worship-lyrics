@@ -11,10 +11,8 @@
 import { app, BrowserWindow, Menu } from 'electron';
 import log from 'electron-log';
 import { autoUpdater } from 'electron-updater';
-import { configuration } from './core/configuration';
-import MenuBuilder from './menu';
-import { StartServerService } from './core/http/worshipServer';
 import { bootstrap } from './core/bootstrap';
+import MenuBuilder from './menu';
 
 export default class AppUpdater {
   constructor() {

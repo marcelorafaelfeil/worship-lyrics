@@ -22,7 +22,7 @@ import { ILyric } from '../../lyric/lyrics-list/ILyric';
 import styles from './SelectedLyrics.css';
 
 export default function SelectedLyrics() {
-  const [selectionDetails, setSelectionDetails] = useState({});
+  const [setSelectionDetails] = useState({});
 
   const classNames = mergeStyleSets({
     root: {
