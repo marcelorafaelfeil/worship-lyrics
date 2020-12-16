@@ -19,7 +19,6 @@ const outerStackTokens: IStackTokens = {
 
 const innerStackTokens: IStackTokens = {
   childrenGap: 5,
-  padding: 10,
 };
 
 // Styles definition
@@ -34,6 +33,8 @@ const stackItemStyles: IStackItemStyles = {
     alignItems: 'center',
     color: DefaultPalette.white,
     display: 'flex',
+    padding: 10,
+    paddingTop: 0,
   },
 };
 

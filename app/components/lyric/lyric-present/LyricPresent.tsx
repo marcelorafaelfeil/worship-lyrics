@@ -1,7 +1,10 @@
 /* eslint-disable react/no-danger */
-import React from 'react';
 import { Stack } from '@fluentui/react';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { IVerse } from '../lyrics-list/IVerse';
 import { lyricPrepare } from '../lyrics-list/LyricFormat';
+import { selectedVerse } from '../LyricSlice';
 
 interface LyricPresentProps {
   lyric: string;
@@ -10,5 +13,7 @@ interface LyricPresentProps {
 export function LyricPresent(props: LyricPresentProps) {
   const { lyric } = props;
 
-  return <Stack>{lyricPrepare(lyric)}</Stack>;
+  const verse: IVerse = useSelector(selectedVerse);
+
+  return <Stack>{lyricPrepare(lyric, verse)}</Stack>;
 }

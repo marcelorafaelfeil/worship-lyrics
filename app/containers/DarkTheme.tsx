@@ -12,7 +12,7 @@ export const darkTheme = createTheme({
     themeDark: '#f4f4f4',
     themeDarker: '#f8f8f8',
     neutralLighterAlt: '#151515',
-    neutralLighter: '#1e1e1e',
+    neutralLighter: '#131313',
     neutralLight: '#2e2e2e',
     neutralQuaternaryAlt: '#373737',
     neutralQuaternary: '#3f3f3f',

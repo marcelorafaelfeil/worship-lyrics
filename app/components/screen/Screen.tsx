@@ -1,6 +1,7 @@
 import { Stack } from '@fluentui/react';
 import React, { CSSProperties } from 'react';
 import { useSelector } from 'react-redux';
+import { IVerse } from '../lyric/lyrics-list/IVerse';
 import { selectedVerse } from '../lyric/LyricSlice';
 import styles from './Screen.css';
 
@@ -12,12 +13,12 @@ const screenStyle: CSSProperties = {
 };
 
 export default function Screen() {
-  const value: string = useSelector(selectedVerse);
+  const verse: IVerse = useSelector(selectedVerse);
 
   return (
     <Stack className={styles.screenContent}>
       <div className={styles.screenLyric} style={screenStyle}>
-        {value}
+        {verse.value}
       </div>
     </Stack>
   );

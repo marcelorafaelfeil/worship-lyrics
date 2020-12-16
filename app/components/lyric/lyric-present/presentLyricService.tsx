@@ -6,7 +6,6 @@ export function presentLyricService() {
   const { getConfig } = configurationService();
 
   function sendLyric(data) {
-    $log.info('chegou aqui? data:', data);
     $log.debug(
       `Conectando: ws://localhost:${
         getConfig().server.ws.port

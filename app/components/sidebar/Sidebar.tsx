@@ -45,10 +45,10 @@ export default function Sidebar(): JSX.Element {
         <Stack className={styles.resizableBlock}>
           <LyricsList />
         </Stack>
-        <Stack className={styles.resizerDivider} />
+        {/* <Stack className={styles.resizerDivider} />
         <Stack className={styles.resizableBlock}>
           <SelectedLyrics />
-        </Stack>
+        </Stack> */}
       </Stack>
       <Configuration />
     </Stack>

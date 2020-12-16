@@ -1,7 +1,7 @@
-.rightbar {
-  padding: 5px;
+.contentButton {
+  padding: 10px;
+  padding-bottom: 0;
 }
-
 .contentLyric {
   overflow: auto;
   margin-bottom: 28px;

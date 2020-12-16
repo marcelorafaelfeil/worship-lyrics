@@ -3,5 +3,11 @@
 }
 .verse {
   cursor: pointer;
-  padding: 7px 0;
+  padding: 0 10px;
+  margin: 10px 0;
+}
+
+.selectedVerse {
+  color: #000;
+  background-color: rgb(130, 247, 255);
 }

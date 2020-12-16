@@ -1,27 +1,41 @@
+import { Stack } from '@fluentui/react';
+import { log } from 'electron-log';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Stack } from '@fluentui/react';
+import { IVerse } from '../lyrics-list/IVerse';
 import { selectVerse } from '../LyricSlice';
 import styles from './LyricPresent.css';
 
 interface LyricPresentProps {
-  value: string;
+  verse: IVerse;
+  isSelected: boolean;
 }
 
-const onSelectVerse = (dispatch, value) => {
-  dispatch(selectVerse(value));
+const onSelectVerse = (dispatch, verse) => {
+  dispatch(selectVerse(verse));
 };
 
 export default function Verse(props: LyricPresentProps) {
-  const { value } = props;
+  const { verse, isSelected } = props;
   const dispatch = useDispatch();
+
+  const verseClasses = [styles.verse];
+
+  if (isSelected) {
+    verseClasses.push(styles.selectedVerse);
+  } else {
+    const index = verseClasses.findIndex((stl) => styles.selectedVerse === stl);
+    if (index >= 0) {
+      verseClasses.splice(index, 1);
+    }
+  }
 
   return (
     <Stack
-      className={styles.verse}
-      onClick={() => onSelectVerse(dispatch, value)}
+      className={verseClasses.join(' ')}
+      onClick={() => onSelectVerse(dispatch, verse)}
     >
-      {value}
+      {verse.value}
     </Stack>
   );
 }

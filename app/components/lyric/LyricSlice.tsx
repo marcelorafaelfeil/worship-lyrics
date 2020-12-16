@@ -3,24 +3,25 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ipcRenderer } from 'electron';
 import * as $log from 'electron-log';
 import { RootState } from '../../store';
-import { ILyric } from './lyrics-list/ILyric';
 import { presentLyricService } from './lyric-present/presentLyricService';
+import { ILyric } from './lyrics-list/ILyric';
+import { IVerse } from './lyrics-list/IVerse';
 
 const { updateLyric, lastLyric } = presentLyricService();
 
 const lyricSlice = createSlice({
   name: 'lyric',
-  initialState: { value: {} as ILyric, verse: '' },
+  initialState: { value: {} as ILyric, verse: {} as IVerse },
   reducers: {
     openLyric: (state, data) => {
       state.value = data.payload;
     },
     selectVerse: (state, data) => {
       state.verse = data.payload;
-      updateLyric(state.verse);
+      updateLyric(state.verse?.value);
     },
     clearVerse: (state) => {
-      state.verse = '';
+      state.verse = {} as IVerse;
       updateLyric(state.verse);
     },
   },

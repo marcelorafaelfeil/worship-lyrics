@@ -35,6 +35,7 @@ const rightBar: IStackItemStyles = {
   root: {
     width: '30vh',
     background: DefaultPalette.neutralDark,
+    padding: 0,
     marginBottom: 28,
   },
 };

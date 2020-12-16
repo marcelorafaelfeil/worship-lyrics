@@ -1,10 +1,15 @@
 .contentButton {
+  display: flex;
   height: 44px;
-  justify-content: flex-end;
   padding: 0 0;
 }
 
+.actionButtons {
+  height: 100%;
+}
+
 .clearButton {
+  margin-left: auto;
   margin-right: 5px;
 }
 
