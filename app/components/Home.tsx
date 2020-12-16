@@ -20,20 +20,21 @@ const stackStyle: IStackStyles = {
 };
 const sidebarStyle: IStackItemStyles = {
   root: {
-    width: 260,
+    width: '30vh',
     background: hexToRgba(DefaultPalette.neutralDark, '0.99'),
   },
 };
 const contentStyle: IStackItemStyles = {
   root: {
+    width: '40vh',
+    overflow: 'hidden',
     background: DefaultPalette.black,
   },
 };
 const rightBar: IStackItemStyles = {
   root: {
-    width: 260,
+    width: '30vh',
     background: DefaultPalette.neutralDark,
-    overflowX: 'hidden',
     marginBottom: 28,
   },
 };
@@ -47,7 +48,7 @@ export default function Home(): JSX.Element {
         <Stack.Item styles={sidebarStyle} align="auto" shrink={false}>
           <Sidebar />
         </Stack.Item>
-        <Stack.Item styles={contentStyle} grow={4}>
+        <Stack.Item styles={contentStyle} grow>
           <Screen />
         </Stack.Item>
         <Stack.Item styles={rightBar}>

@@ -1,5 +1,5 @@
+import { Stack } from '@fluentui/react';
 import React, { CSSProperties } from 'react';
-import { Stack, IStyle } from '@fluentui/react';
 import { useSelector } from 'react-redux';
 import { selectedVerse } from '../lyric/LyricSlice';
 import styles from './Screen.css';

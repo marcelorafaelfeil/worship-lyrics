@@ -1,0 +1,7 @@
+.lyricsList .is-selected {
+  background-color: #f00 !important;
+}
+.title {
+  font-size: 14px;
+  font-weight: bold;
+}
