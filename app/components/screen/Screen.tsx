@@ -5,7 +5,7 @@ import { selectedVerse } from '../lyric/LyricSlice';
 import styles from './Screen.css';
 
 const screenStyle: CSSProperties = {
-  fontSize: 72,
+  fontSize: '5vw',
   fontFamily: 'Arial Black, sans-serif',
   textShadow:
     '2px 0 0 #000000, -2px 0 0 #000000, 0 2px 0 #000000, 0 -2px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000',
